@@ -1,0 +1,6 @@
+{
+  "name": "TopFood Supply",
+  "description": "Dual-market food e-commerce ecosystem for domestic and global B2B/B2C trade.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Cairo", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root[lang="ar"] {
+  font-family: "Cairo", sans-serif;
+}
+
+:root[lang="en"] {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
