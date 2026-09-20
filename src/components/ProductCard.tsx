@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Product } from '../types';
-import { FileBadge, Scale, ShoppingCart } from 'lucide-react';
+import { FileBadge, Scale, ShoppingCart, Check } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useCart } from '../context/CartContext';
 
 interface ProductCardProps {
   product: Product;
+  key?: React.Key;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
   const { t, i18n } = useTranslation();
+  const { addToCart } = useCart();
+  const [isAdded, setIsAdded] = useState(false);
   const lang = i18n.language as 'en' | 'ar';
+
+  const handleAdd = () => {
+    addToCart(product);
+    setIsAdded(true);
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 1500);
+  };
 
   return (
     <div className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition-all duration-300 group flex flex-col h-full">
@@ -67,9 +79,25 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        <button className="w-full h-12 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-colors active:scale-[0.98]">
-          <ShoppingCart className="w-4.5 h-4.5" />
-          <span>{t('product.addToOrder')}</span>
+        <button 
+          onClick={handleAdd}
+          className={`w-full h-12 flex items-center justify-center gap-2 font-semibold rounded-lg transition-all active:scale-[0.98] ${
+            isAdded 
+              ? 'bg-slate-900 text-white' 
+              : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow'
+          }`}
+        >
+          {isAdded ? (
+            <>
+              <Check className="w-4.5 h-4.5 text-emerald-400" />
+              <span>{lang === 'ar' ? 'تمت الإضافة للسلة' : 'Added to Inquiry!'}</span>
+            </>
+          ) : (
+            <>
+              <ShoppingCart className="w-4.5 h-4.5" />
+              <span>{t('product.addToOrder')}</span>
+            </>
+          )}
         </button>
       </div>
     </div>

@@ -2,9 +2,11 @@ import React from 'react';
 import { BlogPost } from '../types';
 import { useTranslation } from 'react-i18next';
 import { Calendar, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface BlogCardProps {
   post: BlogPost;
+  key?: React.Key;
 }
 
 export function BlogCard({ post }: BlogCardProps) {
@@ -12,7 +14,10 @@ export function BlogCard({ post }: BlogCardProps) {
   const lang = i18n.language as 'en' | 'ar';
 
   return (
-    <div className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition-all duration-300 group flex flex-col h-full">
+    <Link 
+      to="/docs" 
+      className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition-all duration-300 group flex flex-col h-full cursor-pointer"
+    >
       <div className="relative aspect-[16/10] bg-slate-100 overflow-hidden">
         <img 
           src={post.imageUrl} 
@@ -42,11 +47,11 @@ export function BlogCard({ post }: BlogCardProps) {
           {post.excerpt[lang]}
         </p>
         
-        <button className="flex items-center gap-1.5 text-emerald-700 font-semibold text-sm hover:text-emerald-800 transition-colors mt-auto w-fit">
-          {t('blog.readMore')}
-          <ArrowRight className={`w-4 h-4 ${lang === 'ar' ? 'rotate-180' : ''}`} />
-        </button>
+        <div className="flex items-center gap-1.5 text-emerald-700 font-semibold text-sm group-hover:text-emerald-800 transition-colors mt-auto w-fit">
+          <span>{t('blog.readMore')}</span>
+          <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${lang === 'ar' ? 'rotate-180 group-hover:-translate-x-1' : ''}`} />
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
