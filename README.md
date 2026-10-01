@@ -21,7 +21,9 @@ View your app in AI Studio: https://ai.studio/apps/0669f0c5-f60c-4179-9b7d-f65e5
 
 ## Deploy (GitHub Pages)
 
-The live site is https://topfoodsupply.github.io/. Pages uses **Deploy from a branch**: branch `main`, folder `/` (repository root). This repo has no GitHub Actions workflow.
+The live site is https://topfoodsupply.github.io/. This repo has no GitHub Actions workflow. Publish with **Deploy from a branch**: branch `main`, folder `/` (repository root).
+
+One-time setup (repo admin): **Settings → Pages → Build and deployment → Source → Deploy from a branch**, then branch `main` and folder `/ (root)`. If Source is still **GitHub Actions**, Pages keeps the last Actions deployment and will not serve the root bundle.
 
 `vite.config.ts` sets `base: './'` so the production `index.html` loads `./assets/...`. That built `index.html` and `assets/` are committed at the repo root, which is what Pages serves. `src/`, `package.json`, and the Vite config stay in the repo for local `npm run dev`; Pages does not need them.
 
