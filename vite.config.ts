@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // User/org site at https://topfoodsupply.github.io/ (site root, not a project subpath).
     base: './',
     plugins: [react(), tailwindcss()],
     resolve: {
