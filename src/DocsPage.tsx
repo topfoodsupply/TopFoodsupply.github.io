@@ -11,7 +11,7 @@ export function DocsPage() {
   const { addToCart, setIsCartOpen } = useCart();
   const lang = i18n.language as 'en' | 'ar';
 
-  const dateSyrupProduct = products.find(p => p.id === 'date-syrup-bulk') || products[1];
+  const dateSyrupProduct = products.find(p => p.id === 'SKU_102_EN');
 
   const handleOrderDateSyrup = () => {
     if (dateSyrupProduct) {
@@ -64,11 +64,11 @@ export function DocsPage() {
       {/* Article Content */}
       <section className="max-w-3xl mx-auto px-4 -mt-16 relative z-20">
         <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 p-6 md:p-12 border border-slate-200">
-          <div className="aspect-[21/9] rounded-xl overflow-hidden mb-10 bg-slate-100">
+          <div className="rounded-xl overflow-hidden mb-10 bg-white border border-slate-100 flex justify-center">
             <img 
-              src="https://images.unsplash.com/photo-1607185031441-28dc071ab8ff?auto=format&fit=crop&q=80&w=1200" 
-              alt="Date Syrup"
-              className="w-full h-full object-cover"
+              src={dateSyrupProduct?.imageUrl}
+              alt={dateSyrupProduct ? dateSyrupProduct.name[lang] : 'Date Syrup'}
+              className="max-h-[460px] w-auto object-contain"
             />
           </div>
 

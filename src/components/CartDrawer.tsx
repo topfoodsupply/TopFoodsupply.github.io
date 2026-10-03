@@ -79,7 +79,7 @@ export function CartDrawer() {
                 <img
                   src={item.product.imageUrl}
                   alt={item.product.name[lang]}
-                  className="w-16 h-16 rounded-lg object-cover bg-white shrink-0"
+                  className="w-16 h-16 rounded-lg object-contain bg-white shrink-0"
                 />
                 <div className="flex-1 min-w-0">
                   <h4 className="font-bold text-xs sm:text-sm text-slate-900 truncate">

@@ -48,7 +48,7 @@ export function HomePage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "TopFood Supply Catalog",
-    "description": "Export-grade natural syrups and concentrates including grape syrup, date syrup, and fig syrup.",
+    "description": "Export-grade natural syrups and concentrates including Birshad date syrup, white mulberry syrup, and grape syrup.",
     "itemListElement": products.map((product, index) => ({
       "@type": "ListItem",
       "position": index + 1,
@@ -78,9 +78,9 @@ export function HomePage() {
     <div className="w-full">
       <Helmet>
         <title>TopFood Supply | Premium Syrups & Concentrates</title>
-        <meta name="description" content="Dual-market B2B & B2C e-commerce platform for exporting premium Iranian grape syrup, date syrup, and fig syrup globally." />
+        <meta name="description" content="Dual-market B2B & B2C e-commerce platform for exporting Birshad date syrup, white mulberry syrup, and grape syrup globally." />
         <meta property="og:title" content="TopFood Supply | Premium Syrups & Concentrates" />
-        <meta property="og:description" content="Dual-market B2B & B2C e-commerce platform for exporting premium Iranian grape syrup, date syrup, and fig syrup globally." />
+        <meta property="og:description" content="Dual-market B2B & B2C e-commerce platform for exporting Birshad date syrup, white mulberry syrup, and grape syrup globally." />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
