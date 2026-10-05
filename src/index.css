@@ -1,15 +1,17 @@
 @import "tailwindcss";
+@import "@fontsource-variable/estedad/wght.css";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Estedad Variable", "Estedad", ui-sans-serif, system-ui, sans-serif;
 }
 
-:root[lang="ar"] {
-  font-family: "Cairo", sans-serif;
-}
-
-:root[lang="en"] {
-  font-family: "Plus Jakarta Sans", sans-serif;
+:root,
+:root[lang="en"],
+:root[lang="ar"],
+:root[lang="fa"],
+html,
+body {
+  font-family: "Estedad Variable", "Estedad", ui-sans-serif, system-ui, sans-serif;
 }
 
 body {

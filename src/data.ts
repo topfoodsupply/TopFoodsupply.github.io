@@ -1,15 +1,15 @@
 import { Product, BlogPost } from './types';
-import dateSyrupImage from './assets/products/birshad-date-syrup.jpg';
-import whiteMulberrySyrupImage from './assets/products/birshad-white-mulberry-syrup.jpg';
-import grapeSyrupImage from './assets/products/birshad-grape-syrup.jpg';
+import dateSyrupImage from './assets/products/date-syrup.jpg';
+import whiteMulberrySyrupImage from './assets/products/white-mulberry-syrup.jpg';
+import grapeSyrupImage from './assets/products/grape-syrup.jpg';
 
 export const products: Product[] = [
   {
     id: 'SKU_102_EN',
     name: {
-      en: 'Birshad Date Syrup',
+      en: 'Date Syrup',
       ar: 'شیره خرما | عصاره النخیل',
-      fa: 'شیره خرما بیرشاد'
+      fa: 'شیره خرما'
     },
     description: {
       en: 'Pure, naturally sweet date syrup extracted from premium Mazafati and Piarom dates. Ideal natural sweetener for food processing, bakery, and retail.',
@@ -30,14 +30,14 @@ export const products: Product[] = [
   {
     id: 'SKU_105_EN',
     name: {
-      en: 'Birshad White Mulberry Syrup',
+      en: 'White Mulberry Syrup',
       ar: 'شیره توت سفید | عصاره التوت',
-      fa: 'شیره توت سفید بیرشاد'
+      fa: 'شیره توت سفید'
     },
     description: {
-      en: 'Naturally sweet white mulberry syrup from Birshad. A natural sweetener for food processing, bakery, and retail.',
-      ar: 'شیره توت سفید بیرشاد، مُحلي طبيعي لتصنيع الأغذية والمخابز وتجارة التجزئة.',
-      fa: 'شیره توت سفید بیرشاد، شیرین‌کننده طبیعی برای تولید مواد غذایی، نانوایی و فروش خرد.'
+      en: 'Naturally sweet white mulberry syrup. A natural sweetener for food processing, bakery, and retail.',
+      ar: 'شیره توت سفید، مُحلي طبيعي لتصنيع الأغذية والمخابز وتجارة التجزئة.',
+      fa: 'شیره توت سفید، شیرین‌کننده طبیعی برای تولید مواد غذایی، نانوایی و فروش خرد.'
     },
     category: 'Syrups & Concentrates',
     price: 7.20,
@@ -53,9 +53,9 @@ export const products: Product[] = [
   {
     id: 'SKU_101_EN',
     name: {
-      en: 'Birshad Grape Syrup',
+      en: 'Grape Syrup',
       ar: 'شیره انگور | عصیر العنب',
-      fa: 'شیره انگور بیرشاد'
+      fa: 'شیره انگور'
     },
     description: {
       en: '100% natural, additive-free concentrated grape juice. Extracted using traditional methods and refined for global export standards. Rich in antioxidants and natural sugars.',
