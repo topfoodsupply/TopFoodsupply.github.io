@@ -13,7 +13,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const { t, i18n } = useTranslation();
   const { addToCart } = useCart();
   const [isAdded, setIsAdded] = useState(false);
-  const lang = i18n.language as 'en' | 'ar';
+  const lang = i18n.language as 'en' | 'ar' | 'fa';
 
   const handleAdd = () => {
     addToCart(product);
@@ -90,7 +90,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {isAdded ? (
             <>
               <Check className="w-4.5 h-4.5 text-emerald-400" />
-              <span>{lang === 'ar' ? 'تمت الإضافة للسلة' : 'Added to Inquiry!'}</span>
+              <span>{lang === 'fa' ? 'به سفارش اضافه شد' : lang === 'ar' ? 'تمت الإضافة للسلة' : 'Added to Inquiry!'}</span>
             </>
           ) : (
             <>

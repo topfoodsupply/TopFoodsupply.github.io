@@ -1,6 +1,7 @@
 export interface LocalizedString {
   en: string;
   ar: string;
+  fa: string;
 }
 
 export interface BlogPost {

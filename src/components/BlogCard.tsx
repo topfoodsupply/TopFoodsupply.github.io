@@ -11,7 +11,7 @@ interface BlogCardProps {
 
 export function BlogCard({ post }: BlogCardProps) {
   const { t, i18n } = useTranslation();
-  const lang = i18n.language as 'en' | 'ar';
+  const lang = i18n.language as 'en' | 'ar' | 'fa';
 
   return (
     <Link 
@@ -31,7 +31,7 @@ export function BlogCard({ post }: BlogCardProps) {
         <div className="flex items-center gap-2 text-xs font-medium text-slate-500 mb-3">
           <Calendar className="w-3.5 h-3.5" />
           <time dateTime={post.date}>
-            {new Date(post.date).toLocaleDateString(lang === 'ar' ? 'ar-SA' : 'en-US', {
+            {new Date(post.date).toLocaleDateString(lang === 'fa' ? 'fa-IR' : lang === 'ar' ? 'ar-SA' : 'en-US', {
               year: 'numeric',
               month: 'long',
               day: 'numeric'
@@ -49,7 +49,7 @@ export function BlogCard({ post }: BlogCardProps) {
         
         <div className="flex items-center gap-1.5 text-emerald-700 font-semibold text-sm group-hover:text-emerald-800 transition-colors mt-auto w-fit">
           <span>{t('blog.readMore')}</span>
-          <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${lang === 'ar' ? 'rotate-180 group-hover:-translate-x-1' : ''}`} />
+          <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${lang === 'en' ? '' : 'rotate-180 group-hover:-translate-x-1'}`} />
         </div>
       </div>
     </Link>

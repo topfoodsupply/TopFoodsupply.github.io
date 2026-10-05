@@ -9,7 +9,7 @@ import { products } from './data';
 export function DocsPage() {
   const { t, i18n } = useTranslation();
   const { addToCart, setIsCartOpen } = useCart();
-  const lang = i18n.language as 'en' | 'ar';
+  const lang = i18n.language as 'en' | 'ar' | 'fa';
 
   const dateSyrupProduct = products.find(p => p.id === 'SKU_102_EN');
 
@@ -38,8 +38,8 @@ export function DocsPage() {
               to="/" 
               className="inline-flex items-center gap-2 text-emerald-300 hover:text-white transition-colors text-sm font-semibold bg-white/10 hover:bg-white/15 px-3.5 py-1.5 rounded-lg backdrop-blur-sm"
             >
-              <ArrowLeft className={`w-4 h-4 ${lang === 'ar' ? 'rotate-180' : ''}`} />
-              <span>{lang === 'ar' ? 'العودة إلى الكتالوج الرئيسي' : 'Back to Catalog'}</span>
+              <ArrowLeft className={`w-4 h-4 ${lang === 'en' ? '' : 'rotate-180'}`} />
+              <span>{lang === 'fa' ? 'بازگشت به کاتالوگ' : lang === 'ar' ? 'العودة إلى الكتالوج الرئيسي' : 'Back to Catalog'}</span>
             </Link>
           </div>
 
@@ -89,10 +89,12 @@ export function DocsPage() {
             <div>
               <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm mb-1">
                 <ShieldCheck className="w-4 h-4" />
-                <span>{lang === 'ar' ? 'توريد بالجملة وتصدير رسمي' : 'B2B Wholesale & Export Supply'}</span>
+                <span>{lang === 'fa' ? 'تأمین عمده و صادرات' : lang === 'ar' ? 'توريد بالجملة وتصدير رسمي' : 'B2B Wholesale & Export Supply'}</span>
               </div>
               <p className="text-xs text-slate-600 max-w-md">
-                {lang === 'ar'
+                {lang === 'fa'
+                  ? 'در مخزن IBC هزار لیتری و بشکه ۲۰۰ کیلویی غذایی، با برگه آنالیز.'
+                  : lang === 'ar'
                   ? 'متاح في حاويات IBC سعة 1000 لتر وبراميل غذائية 200 كجم مع شهادات التحليل المخبري (CoA).'
                   : 'Available in 1000L IBC totes & 200kg food-grade drums with CoA, HACCP, and ISO certs.'}
               </p>
@@ -102,7 +104,7 @@ export function DocsPage() {
               className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm rounded-lg transition-colors flex items-center gap-2 shrink-0 cursor-pointer shadow-sm"
             >
               <ShoppingBag className="w-4 h-4" />
-              <span>{lang === 'ar' ? 'طلب عرض سعر لهذا المنتج' : 'Add to RFQ Order'}</span>
+              <span>{lang === 'fa' ? 'افزودن به استعلام قیمت' : lang === 'ar' ? 'طلب عرض سعر لهذا المنتج' : 'Add to RFQ Order'}</span>
             </button>
           </div>
 
@@ -121,8 +123,8 @@ export function DocsPage() {
               to="/" 
               className="text-xs font-semibold text-emerald-700 hover:text-emerald-800 flex items-center gap-1"
             >
-              <span>{lang === 'ar' ? 'تصفح المنتجات الأخرى' : 'Browse Catalog'}</span>
-              <ArrowRight className={`w-3.5 h-3.5 ${lang === 'ar' ? 'rotate-180' : ''}`} />
+              <span>{lang === 'fa' ? 'دیدن بقیه محصول‌ها' : lang === 'ar' ? 'تصفح المنتجات الأخرى' : 'Browse Catalog'}</span>
+              <ArrowRight className={`w-3.5 h-3.5 ${lang === 'en' ? '' : 'rotate-180'}`} />
             </Link>
           </div>
         </div>

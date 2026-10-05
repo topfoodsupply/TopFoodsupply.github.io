@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 export function CartDrawer() {
   const { cart, isCartOpen, setIsCartOpen, removeFromCart, updateQuantity, clearCart, totalItems, totalB2BAmount } = useCart();
   const { t, i18n } = useTranslation();
-  const lang = i18n.language as 'en' | 'ar';
+  const lang = i18n.language as 'en' | 'ar' | 'fa';
 
   if (!isCartOpen) return null;
 
@@ -29,7 +29,7 @@ export function CartDrawer() {
     <div className="fixed inset-0 z-50 overflow-hidden bg-slate-900/60 backdrop-blur-xs flex justify-end">
       <div 
         className="w-full max-w-md bg-white h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-300"
-        dir={lang === 'ar' ? 'rtl' : 'ltr'}
+        dir={lang === 'en' ? 'ltr' : 'rtl'}
       >
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
@@ -39,10 +39,10 @@ export function CartDrawer() {
             </div>
             <div>
               <h2 className="font-bold text-slate-900 text-base sm:text-lg leading-none">
-                {lang === 'ar' ? 'سلة طلب الاستفسار (RFQ)' : 'Order Inquiry / RFQ Cart'}
+                {lang === 'fa' ? 'سبد استعلام سفارش' : lang === 'ar' ? 'سلة طلب الاستفسار (RFQ)' : 'Order Inquiry / RFQ Cart'}
               </h2>
               <span className="text-xs text-slate-500 font-medium">
-                {totalItems} {lang === 'ar' ? 'عناصر محددة' : 'items selected'}
+                {totalItems} {lang === 'fa' ? 'مورد انتخاب‌شده' : lang === 'ar' ? 'عناصر محددة' : 'items selected'}
               </span>
             </div>
           </div>
@@ -62,10 +62,12 @@ export function CartDrawer() {
                 <ShoppingBag className="w-8 h-8" />
               </div>
               <p className="font-semibold text-slate-700 text-base mb-1">
-                {lang === 'ar' ? 'قائمة الاستفسار فارغة' : 'Your inquiry list is empty'}
+                {lang === 'fa' ? 'لیست استعلام خالی است' : lang === 'ar' ? 'قائمة الاستفسار فارغة' : 'Your inquiry list is empty'}
               </p>
               <p className="text-xs text-slate-500 max-w-xs mx-auto">
-                {lang === 'ar'
+                {lang === 'fa'
+                  ? 'از کاتالوگ محصول انتخاب کنید تا استعلام قیمت عمده ساخته شود.'
+                  : lang === 'ar'
                   ? 'اختر المنتجات من الكتالوج لإضافتها إلى طلب عرض السعر المباشر.'
                   : 'Add products from the catalog to build your wholesale quotation inquiry.'}
               </p>
@@ -128,7 +130,7 @@ export function CartDrawer() {
           <div className="p-4 sm:p-5 border-t border-slate-200 bg-slate-50 space-y-3">
             <div className="flex justify-between items-center text-sm">
               <span className="text-slate-600 font-medium">
-                {lang === 'ar' ? 'التقدير الأولي (B2B)' : 'Estimated Wholesale Total'}
+                {lang === 'fa' ? 'جمع تقریبی عمده' : lang === 'ar' ? 'التقدير الأولي (B2B)' : 'Estimated Wholesale Total'}
               </span>
               <span className="text-lg font-bold text-emerald-700" dir="ltr">
                 USD {totalB2BAmount.toFixed(2)}
@@ -141,7 +143,7 @@ export function CartDrawer() {
             >
               <Send className="w-4 h-4" />
               <span>
-                {lang === 'ar' ? 'إرسال الاستفسار عبر واتساب' : 'Send Inquiry via WhatsApp'}
+                {lang === 'fa' ? 'فرستادن استعلام در واتساپ' : lang === 'ar' ? 'إرسال الاستفسار عبر واتساب' : 'Send Inquiry via WhatsApp'}
               </span>
             </button>
 
@@ -149,7 +151,7 @@ export function CartDrawer() {
               onClick={clearCart}
               className="w-full py-2 text-xs text-slate-500 hover:text-red-600 font-medium transition-colors text-center block"
             >
-              {lang === 'ar' ? 'تفريغ السلة' : 'Clear Inquiry Items'}
+              {lang === 'fa' ? 'خالی کردن سبد' : lang === 'ar' ? 'تفريغ السلة' : 'Clear Inquiry Items'}
             </button>
           </div>
         )}

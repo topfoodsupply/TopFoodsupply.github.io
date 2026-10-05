@@ -12,7 +12,7 @@ export function HomePage() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { searchQuery, setSearchQuery } = useCart();
-  const lang = i18n.language as 'en' | 'ar';
+  const lang = i18n.language as 'en' | 'ar' | 'fa';
 
   const scrollToCatalog = () => {
     const catalogEl = document.getElementById('catalog');
@@ -23,7 +23,9 @@ export function HomePage() {
 
   const handleDomesticInquiry = () => {
     const msg = encodeURIComponent(
-      lang === 'ar'
+      lang === 'fa'
+        ? 'سلام TopFood Supply، می‌خواهم درباره ارسال داخلی و تسویه با شتاب بپرسم.'
+        : lang === 'ar'
         ? 'مرحباً TopFood Supply، أود الاستفسار عن الشحن المحلي والتسليم عبر شبكة شتاب.'
         : 'Hello TopFood Supply, I would like to inquire about domestic Iranian delivery and Shetab settlement.'
     );
@@ -37,8 +39,10 @@ export function HomePage() {
       p =>
         p.name.en.toLowerCase().includes(q) ||
         p.name.ar.toLowerCase().includes(q) ||
+        p.name.fa.toLowerCase().includes(q) ||
         p.description.en.toLowerCase().includes(q) ||
         p.description.ar.toLowerCase().includes(q) ||
+        p.description.fa.toLowerCase().includes(q) ||
         p.hsCode.toLowerCase().includes(q) ||
         p.category.toLowerCase().includes(q)
     );
@@ -108,7 +112,7 @@ export function HomePage() {
                 className="h-14 px-8 bg-emerald-500 hover:bg-emerald-400 active:scale-[0.98] text-emerald-950 font-bold rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-emerald-950/20"
               >
                 {t('home.btnExport')}
-                <ArrowRight className={`w-5 h-5 ${lang === 'ar' ? 'rotate-180' : ''}`} />
+                <ArrowRight className={`w-5 h-5 ${lang === 'en' ? '' : 'rotate-180'}`} />
               </button>
               <button 
                 onClick={handleDomesticInquiry}
@@ -168,7 +172,7 @@ export function HomePage() {
               </h2>
               <p className="text-slate-600">
                 {searchQuery 
-                  ? (lang === 'ar' ? `نتائج البحث عن: "${searchQuery}"` : `Search results for: "${searchQuery}"`)
+                  ? (lang === 'fa' ? `نتیجه جستجو: "${searchQuery}"` : lang === 'ar' ? `نتائج البحث عن: "${searchQuery}"` : `Search results for: "${searchQuery}"`)
                   : t('home.catDesc')}
               </p>
             </div>
@@ -180,7 +184,7 @@ export function HomePage() {
               }}
               className="h-11 px-6 bg-white border border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-emerald-500 hover:text-emerald-700 transition-colors flex items-center justify-center text-sm cursor-pointer shadow-2xs"
             >
-              {searchQuery ? (lang === 'ar' ? 'إعادة ضبط البحث' : 'Reset Filter') : t('home.btnViewAll')}
+              {searchQuery ? (lang === 'fa' ? 'پاک کردن جستجو' : lang === 'ar' ? 'إعادة ضبط البحث' : 'Reset Filter') : t('home.btnViewAll')}
             </button>
           </div>
           
@@ -190,10 +194,12 @@ export function HomePage() {
                 <SearchX className="w-8 h-8" />
               </div>
               <h3 className="font-bold text-lg text-slate-900 mb-2">
-                {lang === 'ar' ? 'لم يتم العثور على منتجات' : 'No matching products found'}
+                {lang === 'fa' ? 'محصولی پیدا نشد' : lang === 'ar' ? 'لم يتم العثور على منتجات' : 'No matching products found'}
               </h3>
               <p className="text-sm text-slate-500 mb-6">
-                {lang === 'ar' 
+                {lang === 'fa'
+                  ? 'عبارت دیگری جستجو کنید یا فیلتر را پاک کنید.'
+                  : lang === 'ar' 
                   ? 'جرب البحث باسم منتج آخر أو تصفح كامل الكتالوج.' 
                   : 'Try searching with different keywords or reset the filter.'}
               </p>
@@ -201,7 +207,7 @@ export function HomePage() {
                 onClick={() => setSearchQuery('')}
                 className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-lg transition-colors"
               >
-                {lang === 'ar' ? 'عرض جميع المنتجات' : 'View All Products'}
+                {lang === 'fa' ? 'دیدن همه محصول‌ها' : lang === 'ar' ? 'عرض جميع المنتجات' : 'View All Products'}
               </button>
             </div>
           ) : (

@@ -4,11 +4,13 @@ import { useTranslation } from 'react-i18next';
 
 export function WhatsAppButton() {
   const { i18n } = useTranslation();
-  const lang = i18n.language as 'en' | 'ar';
+  const lang = i18n.language as 'en' | 'ar' | 'fa';
 
   const handleClick = () => {
     const defaultText = encodeURIComponent(
-      lang === 'ar'
+      lang === 'fa'
+        ? 'سلام، می‌خواهم درباره محصول‌های صادراتی TopFood Supply و قیمت عمده بپرسم.'
+        : lang === 'ar'
         ? 'مرحباً، أود الاستفسار عن منتجات TopFood Supply للتصدير والأسعار بالجملة.'
         : 'Hello, I would like to inquire about TopFood Supply export products and wholesale pricing.'
     );
@@ -23,7 +25,7 @@ export function WhatsAppButton() {
     >
       <MessageCircle className="w-6 h-6 fill-white" />
       <span className="hidden sm:inline-block text-xs font-bold pe-1">
-        {lang === 'ar' ? 'استفسار عبر واتساب' : 'B2B WhatsApp'}
+        {lang === 'fa' ? 'پرسش در واتساپ' : lang === 'ar' ? 'استفسار عبر واتساب' : 'B2B WhatsApp'}
       </span>
     </button>
   );

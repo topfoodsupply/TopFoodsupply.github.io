@@ -18,7 +18,7 @@ export function Layout({ children }: LayoutProps) {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
   useEffect(() => {
-    document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.dir = i18n.language === 'en' ? 'ltr' : 'rtl';
     document.documentElement.lang = i18n.language;
   }, [i18n.language]);
 
@@ -132,6 +132,16 @@ export function Layout({ children }: LayoutProps) {
                 }`}
               >
                 عربي
+              </button>
+              <button 
+                onClick={() => i18n.changeLanguage('fa')}
+                className={`px-2 py-1 text-xs rounded font-bold transition-all ${
+                  i18n.language === 'fa' 
+                    ? 'bg-emerald-700 text-white shadow-xs' 
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                فا
               </button>
             </div>
           </div>
@@ -249,7 +259,7 @@ export function Layout({ children }: LayoutProps) {
               </span>
             )}
             <span className="text-[10px] font-medium">
-              {i18n.language === 'ar' ? 'الطلب' : 'Inquiry'}
+              {i18n.language === 'fa' ? 'سفارش' : i18n.language === 'ar' ? 'الطلب' : 'Inquiry'}
             </span>
           </button>
         </div>
